@@ -32,9 +32,11 @@
             theme: {
                 extend: {
                     colors: {
-                        'brand-lime': '#C1FF00',
-                        'brand-blue': '#2B7FE6',
-                        'brand-dark': '#1a1a1a',
+                        'alumni-purple': '#4A1942',
+                        'alumni-wine': '#6B1E5C',
+                        'alumni-pink': '#D946A6',
+                        'alumni-yellow': '#FDE047',
+                        'alumni-dark': '#2D0A29',
                     }
                 }
             }
@@ -131,7 +133,7 @@
     }
     </script>
 
-    <!-- Meta Pixel Code (Substitua 123456789012345 pelo seu Pixel ID real) -->
+    <!-- Meta Pixel Code -->
     <script>
       !function(f,b,e,v,n,t,s)
       {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -148,7 +150,7 @@
       src="https://www.facebook.com/tr?id=123456789012345&ev=PageView&noscript=1"
     /></noscript>
 
-    <!-- Google Analytics GA4 (Substitua G-XXXXXXXXXX pelo seu GA4 ID real) -->
+    <!-- Google Analytics GA4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -160,6 +162,10 @@
     <style>
         html {
             scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
         }
 
         .strike-through {
@@ -186,53 +192,79 @@
                 opacity: 1;
             }
             50% {
-                opacity: .7;
+                opacity: .8;
             }
         }
 
-        /* Focus visible styles for accessibility */
         *:focus-visible {
-            outline: 2px solid #C1FF00;
+            outline: 2px solid #FDE047;
             outline-offset: 2px;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            background-color: #20ba5a;
+            transform: scale(1.1);
         }
     </style>
 </head>
 <body class="bg-white text-gray-900 antialiased">
 
     <!-- Cookie Banner -->
-    <div id="cookieBanner" class="fixed bottom-0 left-0 right-0 bg-brand-dark text-white p-4 shadow-lg z-50 hidden">
+    <div id="cookieBanner" class="fixed bottom-0 left-0 right-0 bg-alumni-dark text-white p-4 shadow-lg z-50 hidden">
         <div class="container mx-auto max-w-6xl flex flex-col sm:flex-row items-center justify-between gap-4">
             <p class="text-sm">
                 Usamos cookies para melhorar sua experiência. Ao continuar navegando, você concorda com nossa
-                <a href="#privacy" class="underline hover:text-brand-lime">Política de Privacidade</a>.
+                <a href="#privacy" class="underline hover:text-alumni-yellow">Política de Privacidade</a>.
             </p>
-            <button id="acceptCookies" class="bg-brand-lime text-brand-dark px-6 py-2 rounded-lg font-semibold hover:bg-yellow-300 transition whitespace-nowrap">
+            <button id="acceptCookies" class="bg-alumni-yellow text-alumni-dark px-6 py-2 rounded-lg font-semibold hover:bg-yellow-300 transition whitespace-nowrap">
                 Aceitar
             </button>
         </div>
     </div>
 
+    <!-- WhatsApp Flutuante -->
+    <a href="https://wa.me/5511999999999?text=Ol%C3%A1%21%20Quero%20garantir%20minha%20vaga%20no%20curso%20de%20Espanhol%20Alumni%20by%20Better%20com%2050%25%20OFF%20%F0%9F%8E%93" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Falar no WhatsApp">
+        <span>💬</span>
+    </a>
+
     <!-- Header -->
-    <header class="bg-white border-b border-gray-200 sticky top-0 z-40 shadow-sm">
-        <div class="container mx-auto px-4 py-4 max-w-6xl">
+    <header class="bg-alumni-dark text-white sticky top-0 z-40 shadow-lg">
+        <div class="container mx-auto px-4 py-4 max-w-7xl">
             <div class="flex items-center justify-between">
-                <div class="flex items-center gap-2">
-                    <span class="text-2xl" aria-hidden="true">🎓</span>
-                    <div>
-                        <div class="font-bold text-xl text-brand-dark">Alumni</div>
-                        <div class="text-xs text-gray-600">by Better</div>
-                    </div>
+                <div class="flex items-center gap-3">
+                    <div class="text-white font-bold text-2xl">alumni</div>
+                    <div class="text-xs text-gray-300 border-l border-gray-600 pl-3">by Better</div>
                 </div>
 
-                <nav class="hidden md:flex items-center gap-6" aria-label="Navegação principal">
-                    <a href="#como-funciona" class="text-gray-700 hover:text-brand-blue transition">Como funciona</a>
-                    <a href="#oferta" class="text-gray-700 hover:text-brand-blue transition">Oferta</a>
-                    <a href="#bonus" class="text-gray-700 hover:text-brand-blue transition">Bônus</a>
-                    <a href="#faq" class="text-gray-700 hover:text-brand-blue transition">FAQ</a>
+                <nav class="hidden md:flex items-center gap-8 text-sm" aria-label="Navegação principal">
+                    <a href="#como-funciona" class="text-gray-300 hover:text-alumni-yellow transition">Como funciona</a>
+                    <a href="#oferta" class="text-gray-300 hover:text-alumni-yellow transition">Oferta</a>
+                    <a href="#bonus" class="text-gray-300 hover:text-alumni-yellow transition">Bônus</a>
+                    <a href="#faq" class="text-gray-300 hover:text-alumni-yellow transition">FAQ</a>
                 </nav>
 
-                <a href="#inscricao" class="bg-brand-blue text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition">
-                    Garantir vaga
+                <a href="#inscricao" class="bg-alumni-yellow text-alumni-dark px-6 py-2 rounded-lg font-bold hover:bg-yellow-300 transition text-sm">
+                    Garantir Vaga
                 </a>
             </div>
         </div>
@@ -240,165 +272,180 @@
 
     <main>
         <!-- Hero Section -->
-        <section class="bg-gradient-to-br from-blue-50 to-white py-12 md:py-20">
-            <div class="container mx-auto px-4 max-w-6xl">
+        <section class="bg-gradient-to-br from-alumni-purple via-alumni-wine to-alumni-dark text-white py-16 md:py-24 relative overflow-hidden">
+            <div class="absolute inset-0 opacity-10">
+                <div class="absolute top-0 left-0 w-96 h-96 bg-alumni-pink rounded-full blur-3xl"></div>
+                <div class="absolute bottom-0 right-0 w-96 h-96 bg-purple-600 rounded-full blur-3xl"></div>
+            </div>
+
+            <div class="container mx-auto px-4 max-w-7xl relative z-10">
                 <div class="grid md:grid-cols-2 gap-12 items-center">
                     <div>
-                        <div class="inline-block bg-red-500 text-white px-4 py-1 rounded-full text-sm font-semibold mb-6 pulse-animation">
-                            Pré-venda Black Friday • Vagas limitadas
+                        <div class="inline-block bg-red-600 text-white px-4 py-2 rounded-full text-xs font-bold mb-6 pulse-animation uppercase tracking-wide">
+                            Pré-venda Black Friday | Vagas Limitadas
                         </div>
 
-                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-brand-dark leading-tight mb-6">
-                            Domine o espanhol com aulas ao vivo e método flexível
+                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+                            Domine o espanhol<br>
+                            com aulas ao vivo<br>
+                            e método flexível
                         </h1>
 
-                        <p class="text-xl text-gray-700 mb-8">
-                            Pre-class on-demand + aula no Zoom. 4 níveis do básico ao avançado. Professores que te fazem falar — não decorar.
+                        <p class="text-lg md:text-xl text-gray-200 mb-2">
+                            A metodologia que já destravou o inglês de mais de
                         </p>
-
-                        <div class="bg-white rounded-2xl shadow-xl p-6 mb-8 border-2 border-brand-lime">
-                            <div class="flex items-baseline gap-3 mb-2">
-                                <span class="text-gray-500 strike-through text-2xl">R$ 298</span>
-                                <span class="text-5xl font-bold text-brand-blue">R$ 149</span>
-                                <span class="text-gray-700">/mês</span>
-                            </div>
-                            <p class="text-gray-600 text-sm mb-4">Parcelamento em 12x sem juros</p>
-
-                            <div class="bg-gray-100 rounded-lg p-4">
-                                <p class="text-sm font-semibold text-gray-700 mb-2">Oferta termina em:</p>
-                                <div id="countdown" class="flex gap-3 justify-start" aria-live="polite" aria-atomic="true">
-                                    <div class="text-center">
-                                        <div class="bg-brand-dark text-brand-lime text-2xl font-bold px-3 py-2 rounded" id="days">00</div>
-                                        <div class="text-xs text-gray-600 mt-1">dias</div>
-                                    </div>
-                                    <div class="text-center">
-                                        <div class="bg-brand-dark text-brand-lime text-2xl font-bold px-3 py-2 rounded" id="hours">00</div>
-                                        <div class="text-xs text-gray-600 mt-1">horas</div>
-                                    </div>
-                                    <div class="text-center">
-                                        <div class="bg-brand-dark text-brand-lime text-2xl font-bold px-3 py-2 rounded" id="minutes">00</div>
-                                        <div class="text-xs text-gray-600 mt-1">min</div>
-                                    </div>
-                                    <div class="text-center">
-                                        <div class="bg-brand-dark text-brand-lime text-2xl font-bold px-3 py-2 rounded" id="seconds">00</div>
-                                        <div class="text-xs text-gray-600 mt-1">seg</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <a href="#inscricao" class="inline-block w-full sm:w-auto bg-brand-blue text-white text-center px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-700 transition shadow-lg hover:shadow-xl transform hover:scale-105">
-                            Garantir minha vaga por R$149/mês
-                        </a>
-
-                        <p class="text-sm text-gray-600 mt-4">
-                            ✓ Início em janeiro/2026 • ✓ Masterclasses em dezembro • ✓ Suporte no WhatsApp
+                        <p class="text-lg md:text-xl text-gray-200 mb-6">
+                            <strong class="text-alumni-yellow">500 mil alunos</strong>, agora também no espanhol.
+                        </p>
+                        <p class="text-base text-gray-300 mb-8">
+                            Com <strong>Preclase preparatória</strong> + aula no Zoom.<br>
+                            Do básico ao avançado em 4 níveis
                         </p>
                     </div>
 
                     <div>
-                        <img src="https://picsum.photos/seed/hero-student/600/700" alt="Estudante feliz aprendendo espanhol em aula ao vivo no computador" class="rounded-2xl shadow-2xl w-full" loading="eager">
+                        <div class="bg-white rounded-3xl shadow-2xl p-8 text-gray-900">
+                            <div class="text-center mb-6">
+                                <div class="flex items-center justify-center gap-3 mb-2">
+                                    <span class="text-gray-400 line-through text-2xl font-semibold">R$ 298</span>
+                                    <span class="text-5xl md:text-6xl font-bold text-alumni-wine">R$ 149</span>
+                                    <span class="text-xl text-gray-600">/mês</span>
+                                </div>
+                                <p class="text-sm text-gray-600">Parcelamento em 12x sem juros</p>
+                            </div>
+
+                            <div class="bg-gray-100 rounded-2xl p-6 mb-6">
+                                <p class="text-sm font-bold text-gray-800 mb-4 text-center">Oferta termina em:</p>
+                                <div id="countdown" class="grid grid-cols-4 gap-3 text-center" aria-live="polite" aria-atomic="true">
+                                    <div>
+                                        <div class="bg-alumni-purple text-alumni-yellow text-3xl font-bold py-3 px-2 rounded-lg" id="days">00</div>
+                                        <div class="text-xs text-gray-600 mt-2 font-semibold">Dias</div>
+                                    </div>
+                                    <div>
+                                        <div class="bg-alumni-purple text-alumni-yellow text-3xl font-bold py-3 px-2 rounded-lg" id="hours">00</div>
+                                        <div class="text-xs text-gray-600 mt-2 font-semibold">Horas</div>
+                                    </div>
+                                    <div>
+                                        <div class="bg-alumni-purple text-alumni-yellow text-3xl font-bold py-3 px-2 rounded-lg" id="minutes">00</div>
+                                        <div class="text-xs text-gray-600 mt-2 font-semibold">Min</div>
+                                    </div>
+                                    <div>
+                                        <div class="bg-alumni-purple text-alumni-yellow text-3xl font-bold py-3 px-2 rounded-lg" id="seconds">00</div>
+                                        <div class="text-xs text-gray-600 mt-2 font-semibold">Seg</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <a href="#inscricao" class="block w-full bg-alumni-purple hover:bg-alumni-wine text-white text-center px-6 py-4 rounded-xl font-bold text-base transition shadow-lg mb-4">
+                                Garantir minha vaga por R$ 149
+                            </a>
+
+                            <div class="text-xs text-gray-600 text-center space-y-1">
+                                <p>✓ Início em janeiro/2026 • ✓ Masterclasses em Dezembro</p>
+                                <p>✓ Suporte no WhatsApp</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Trust Bar -->
-        <section class="bg-brand-dark text-white py-8">
-            <div class="container mx-auto px-4 max-w-6xl">
-                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+        <section class="bg-alumni-dark text-white py-12">
+            <div class="container mx-auto px-4 max-w-7xl">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
                     <div class="text-center">
-                        <div class="text-3xl mb-2" aria-hidden="true">💻</div>
-                        <p class="text-sm">Aulas ao vivo no Zoom</p>
+                        <div class="bg-alumni-wine rounded-xl p-6 mb-3 mx-auto w-20 h-20 flex items-center justify-center">
+                            <div class="text-3xl">💻</div>
+                        </div>
+                        <p class="text-sm font-medium">Aulas ao vivo<br>no Zoom</p>
                     </div>
                     <div class="text-center">
-                        <div class="text-3xl mb-2" aria-hidden="true">📚</div>
-                        <p class="text-sm">4 níveis completos</p>
+                        <div class="bg-alumni-wine rounded-xl p-6 mb-3 mx-auto w-20 h-20 flex items-center justify-center">
+                            <div class="text-3xl">📚</div>
+                        </div>
+                        <p class="text-sm font-medium">4 níveis<br>completos</p>
                     </div>
                     <div class="text-center">
-                        <div class="text-3xl mb-2" aria-hidden="true">🕐</div>
-                        <p class="text-sm">Flexível (pre-class + live)</p>
+                        <div class="bg-alumni-wine rounded-xl p-6 mb-3 mx-auto w-20 h-20 flex items-center justify-center">
+                            <div class="text-3xl">🕐</div>
+                        </div>
+                        <p class="text-sm font-medium">Flexível (preclase<br>preparatória + live)</p>
                     </div>
                     <div class="text-center">
-                        <div class="text-3xl mb-2" aria-hidden="true">🎁</div>
-                        <p class="text-sm">Masterclasses em dezembro</p>
-                    </div>
-                    <div class="text-center">
-                        <div class="text-3xl mb-2" aria-hidden="true">🏆</div>
-                        <p class="text-sm">Certificado por nível</p>
-                    </div>
-                    <div class="text-center">
-                        <div class="text-3xl mb-2" aria-hidden="true">💬</div>
-                        <p class="text-sm">Suporte no WhatsApp</p>
+                        <div class="bg-alumni-wine rounded-xl p-6 mb-3 mx-auto w-20 h-20 flex items-center justify-center">
+                            <div class="text-3xl">🎁</div>
+                        </div>
+                        <p class="text-sm font-medium">Masterclass<br>em dezembro</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Como Funciona -->
-        <section id="como-funciona" class="py-16 md:py-24 bg-white">
+        <section id="como-funciona" class="py-20 md:py-28 bg-white">
             <div class="container mx-auto px-4 max-w-6xl">
                 <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold text-brand-dark mb-4">
+                    <h2 class="text-4xl md:text-5xl font-bold text-alumni-dark mb-4">
                         Como funciona o método Alumni
                     </h2>
-                    <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
                         Um sistema desenhado para adultos ocupados que querem resultados reais
                     </p>
                 </div>
 
-                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <div class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition">
-                        <div class="bg-brand-blue text-white w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold mb-4">
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                    <div class="text-center">
+                        <div class="bg-alumni-purple text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold mb-6 mx-auto shadow-lg">
                             1
                         </div>
-                        <h3 class="text-xl font-bold text-brand-dark mb-3">
-                            Pre-class on-demand
+                        <h3 class="text-xl font-bold text-alumni-dark mb-3">
+                            Preclase preparatória
                         </h3>
-                        <p class="text-gray-600">
-                            15-20 minutos de vídeo antes da live. Você aprende o conteúdo no seu ritmo e chega pronto para praticar.
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            15-20 minutos de vídeo antes da aula ao vivo. Você aprende o conteúdo no seu ritmo e chega pronto para praticar.
                         </p>
                     </div>
 
-                    <div class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition">
-                        <div class="bg-brand-blue text-white w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold mb-4">
+                    <div class="text-center">
+                        <div class="bg-alumni-purple text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold mb-6 mx-auto shadow-lg">
                             2
                         </div>
-                        <h3 class="text-xl font-bold text-brand-dark mb-3">
-                            Aula ao vivo
+                        <h3 class="text-xl font-bold text-alumni-dark mb-3">
+                            Aulas ao vivo
                         </h3>
-                        <p class="text-gray-600">
-                            1x por semana no Zoom. Fala, escuta e prática com professor e turma. Aqui você realmente aprende espanhol.
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Aulas de conversação em grupo, no Zoom, para praticar: fala e escuta. Aqui você aprende falando.
                         </p>
                     </div>
 
-                    <div class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition">
-                        <div class="bg-brand-blue text-white w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold mb-4">
+                    <div class="text-center">
+                        <div class="bg-alumni-purple text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold mb-6 mx-auto shadow-lg">
                             3
                         </div>
-                        <h3 class="text-xl font-bold text-brand-dark mb-3">
+                        <h3 class="text-xl font-bold text-alumni-dark mb-3">
                             Acompanhamento
                         </h3>
-                        <p class="text-gray-600">
-                            Desafios mensais, suporte no WhatsApp e comunidade ativa. Você nunca está sozinho(a) nessa jornada.
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Desafios mensais, suporte de especialistas no WhatsApp e comunidade ativa. Você nunca está sozinho nessa jornada.
                         </p>
                     </div>
 
-                    <div class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition">
-                        <div class="bg-brand-blue text-white w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold mb-4">
+                    <div class="text-center">
+                        <div class="bg-alumni-purple text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold mb-6 mx-auto shadow-lg">
                             4
                         </div>
-                        <h3 class="text-xl font-bold text-brand-dark mb-3">
+                        <h3 class="text-xl font-bold text-alumni-dark mb-3">
                             Avaliação e certificado
                         </h3>
-                        <p class="text-gray-600">
+                        <p class="text-gray-600 text-sm leading-relaxed">
                             Ao final de cada nível, você faz uma avaliação prática e recebe seu certificado digital.
                         </p>
                     </div>
                 </div>
 
-                <div class="text-center mt-12">
-                    <a href="#inscricao" class="inline-block bg-brand-lime text-brand-dark px-8 py-4 rounded-lg font-bold text-lg hover:bg-yellow-300 transition shadow-lg">
+                <div class="text-center">
+                    <a href="#inscricao" class="inline-block bg-alumni-purple hover:bg-alumni-wine text-white px-10 py-4 rounded-xl font-bold text-lg transition shadow-lg">
                         Quero começar agora
                     </a>
                 </div>
@@ -406,64 +453,70 @@
         </section>
 
         <!-- Oferta Black Friday -->
-        <section id="oferta" class="py-16 md:py-24 bg-gradient-to-br from-gray-900 to-gray-800 text-white">
-            <div class="container mx-auto px-4 max-w-6xl">
-                <div class="text-center mb-16">
-                    <div class="inline-block bg-red-500 text-white px-4 py-2 rounded-full text-sm font-semibold mb-4">
-                        BLACK FRIDAY 2025
+        <section id="oferta" class="py-20 md:py-28 bg-gradient-to-br from-alumni-dark via-alumni-purple to-alumni-wine text-white relative overflow-hidden">
+            <div class="absolute inset-0 opacity-10">
+                <div class="absolute top-0 right-0 w-96 h-96 bg-alumni-pink rounded-full blur-3xl"></div>
+            </div>
+
+            <div class="container mx-auto px-4 max-w-6xl relative z-10">
+                <div class="text-center mb-12">
+                    <div class="inline-block bg-red-600 text-white px-6 py-3 rounded-full text-sm font-bold mb-6 uppercase tracking-wide">
+                        BLACK FRIDAY Alumni 2025
                     </div>
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                        50% OFF na pré-venda de novembro
+                    <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                        50% OFF na pré-venda de Novembro
                     </h2>
-                    <p class="text-xl text-gray-300">
+                    <p class="text-lg text-gray-200">
                         Condição válida até 30/11 às 23:59 ou enquanto durarem as vagas promocionais
                     </p>
                 </div>
 
-                <div class="max-w-4xl mx-auto">
-                    <div class="bg-white text-gray-900 rounded-2xl shadow-2xl overflow-hidden">
-                        <table class="w-full">
-                            <thead>
-                                <tr class="border-b-2 border-gray-200">
-                                    <th class="p-6 text-left text-lg font-bold">Plano</th>
-                                    <th class="p-6 text-center text-lg font-bold">Preço/mês</th>
-                                    <th class="p-6 text-center text-lg font-bold">Total 12 meses</th>
-                                    <th class="p-6 text-center text-lg font-bold">Bônus</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr class="border-b border-gray-200 bg-gray-50">
-                                    <td class="p-6 font-semibold">Plano Padrão</td>
-                                    <td class="p-6 text-center">
-                                        <span class="text-2xl font-bold text-gray-400 line-through">R$ 298</span>
-                                    </td>
-                                    <td class="p-6 text-center text-gray-400 line-through">R$ 3.576</td>
-                                    <td class="p-6 text-center text-gray-400">—</td>
-                                </tr>
-                                <tr class="bg-brand-lime">
-                                    <td class="p-6 font-bold text-xl">
-                                        Black Friday Pré-venda
-                                        <div class="text-sm font-normal text-gray-700">Vagas limitadas</div>
-                                    </td>
-                                    <td class="p-6 text-center">
-                                        <div class="text-4xl font-bold text-brand-blue">R$ 149</div>
-                                    </td>
-                                    <td class="p-6 text-center">
-                                        <div class="text-2xl font-bold">R$ 1.788</div>
-                                        <div class="text-sm text-gray-700">Economia de R$ 1.788</div>
-                                    </td>
-                                    <td class="p-6 text-center font-semibold">
-                                        ✓ Masterclasses de dezembro
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                <div class="max-w-5xl mx-auto">
+                    <div class="bg-white text-gray-900 rounded-3xl shadow-2xl overflow-hidden">
+                        <div class="overflow-x-auto">
+                            <table class="w-full">
+                                <thead>
+                                    <tr class="border-b-2 border-gray-200 bg-gray-50">
+                                        <th class="p-6 text-left text-base font-bold">Plano</th>
+                                        <th class="p-6 text-center text-base font-bold">Preço/mês</th>
+                                        <th class="p-6 text-center text-base font-bold">Total 12 Meses</th>
+                                        <th class="p-6 text-center text-base font-bold">Bônus</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="border-b border-gray-200">
+                                        <td class="p-6 font-semibold">Plano Padrão</td>
+                                        <td class="p-6 text-center">
+                                            <span class="text-2xl font-bold text-gray-400 line-through">R$ 298</span>
+                                        </td>
+                                        <td class="p-6 text-center text-gray-400 line-through text-lg">R$ 3.576</td>
+                                        <td class="p-6 text-center text-gray-400">—</td>
+                                    </tr>
+                                    <tr class="bg-alumni-yellow">
+                                        <td class="p-6">
+                                            <div class="font-bold text-xl text-alumni-dark">Black Friday Pré-venda</div>
+                                            <div class="text-sm text-gray-700 mt-1">Vagas limitadas</div>
+                                        </td>
+                                        <td class="p-6 text-center">
+                                            <div class="text-5xl font-bold text-alumni-purple">R$ 149</div>
+                                        </td>
+                                        <td class="p-6 text-center">
+                                            <div class="text-2xl font-bold text-alumni-dark">R$ 1.788</div>
+                                            <div class="text-sm text-gray-700 mt-1">Economia de R$ 1.788</div>
+                                        </td>
+                                        <td class="p-6 text-center font-semibold text-alumni-dark">
+                                            ✓ Masterclasses de Dezembro
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
 
                         <div class="p-8 bg-gray-50 text-center border-t-2 border-gray-200">
-                            <p class="text-lg font-semibold text-brand-dark mb-4">
+                            <p class="text-base font-semibold text-alumni-dark mb-6">
                                 + Você ganha acesso antecipado às masterclasses exclusivas de dezembro
                             </p>
-                            <a href="#inscricao" class="inline-block bg-brand-blue text-white px-10 py-4 rounded-lg font-bold text-lg hover:bg-blue-700 transition shadow-lg">
+                            <a href="#inscricao" class="inline-block bg-alumni-purple hover:bg-alumni-wine text-white px-10 py-4 rounded-xl font-bold text-lg transition shadow-lg">
                                 Quero o preço de Black Friday
                             </a>
                         </div>
@@ -473,107 +526,105 @@
         </section>
 
         <!-- Masterclasses de Dezembro -->
-        <section id="bonus" class="py-16 md:py-24 bg-white">
-            <div class="container mx-auto px-4 max-w-6xl">
+        <section id="bonus" class="py-20 md:py-28 bg-white">
+            <div class="container mx-auto px-4 max-w-7xl">
                 <div class="grid md:grid-cols-2 gap-12 items-center">
                     <div>
-                        <div class="inline-block bg-brand-lime text-brand-dark px-4 py-2 rounded-lg text-sm font-bold mb-4">
-                            BÔNUS EXCLUSIVO
+                        <div class="inline-block bg-alumni-purple text-white px-5 py-2 rounded-lg text-xs font-bold mb-6 uppercase tracking-wide">
+                            Bônus Exclusivo
                         </div>
-                        <h2 class="text-3xl md:text-4xl font-bold text-brand-dark mb-6">
-                            Masterclasses ao vivo em dezembro
+                        <h2 class="text-4xl md:text-5xl font-bold text-alumni-dark mb-6 leading-tight">
+                            Masterclasses ao vivo<br>em Dezembro
                         </h2>
-                        <p class="text-xl text-gray-600 mb-8">
-                            Entre no ritmo antes do começo das aulas em janeiro. Só para quem garantir vaga na pré-venda Black Friday.
+                        <p class="text-lg text-gray-700 mb-8 leading-relaxed">
+                            Entre no ritmo antes do começo das aulas em Janeiro.<br>
+                            <strong>Só para quem garantir vaga na pré-venda Black Friday</strong>
                         </p>
 
-                        <ul class="space-y-4 mb-8">
+                        <ul class="space-y-4 mb-10">
                             <li class="flex items-start gap-3">
-                                <span class="text-brand-blue text-xl flex-shrink-0" aria-hidden="true">✓</span>
-                                <span class="text-gray-700"><strong>Como tirar o máximo do curso:</strong> organize sua rotina e acelere o aprendizado</span>
+                                <span class="text-alumni-purple text-xl flex-shrink-0 mt-1">✓</span>
+                                <span class="text-gray-800"><strong>Como tirar o máximo do curso:</strong> Organize sua rotina e acelere o aprendizado</span>
                             </li>
                             <li class="flex items-start gap-3">
-                                <span class="text-brand-blue text-xl flex-shrink-0" aria-hidden="true">✓</span>
-                                <span class="text-gray-700"><strong>Sotaques Espanha x América Latina:</strong> entenda as diferenças e escolha seu caminho</span>
+                                <span class="text-alumni-purple text-xl flex-shrink-0 mt-1">✓</span>
+                                <span class="text-gray-800"><strong>Sotaques Espanha X América Latina:</strong> Entenda as diferenças e escolha seu caminho</span>
                             </li>
                             <li class="flex items-start gap-3">
-                                <span class="text-brand-blue text-xl flex-shrink-0" aria-hidden="true">✓</span>
-                                <span class="text-gray-700"><strong>Destravar a fala:</strong> perca a vergonha e comece a falar desde o dia 1</span>
+                                <span class="text-alumni-purple text-xl flex-shrink-0 mt-1">✓</span>
+                                <span class="text-gray-800"><strong>Destrave a fala:</strong> Perca a vergonha e comece a falar desde o dia 1</span>
                             </li>
                             <li class="flex items-start gap-3">
-                                <span class="text-brand-blue text-xl flex-shrink-0" aria-hidden="true">✓</span>
-                                <span class="text-gray-700"><strong>30 frases para usar já:</strong> vocabulário prático para viagens e trabalho</span>
+                                <span class="text-alumni-purple text-xl flex-shrink-0 mt-1">✓</span>
+                                <span class="text-gray-800"><strong>30 frases para usar já:</strong> Vocabulário prático para viagens e trabalho</span>
                             </li>
                             <li class="flex items-start gap-3">
-                                <span class="text-brand-blue text-xl flex-shrink-0" aria-hidden="true">✓</span>
-                                <span class="text-gray-700"><strong>Cultura latina:</strong> música, filmes, gírias e curiosidades dos países hispanohablantes</span>
+                                <span class="text-alumni-purple text-xl flex-shrink-0 mt-1">✓</span>
+                                <span class="text-gray-800"><strong>Cultura latina:</strong> Música, filmes, gírias e curiosidades dos países hispanohablantes</span>
                             </li>
                         </ul>
 
-                        <a href="#inscricao" class="inline-block bg-brand-lime text-brand-dark px-8 py-4 rounded-lg font-bold text-lg hover:bg-yellow-300 transition shadow-lg">
-                            Garantir acesso aos masterclasses
+                        <a href="#inscricao" class="inline-block bg-alumni-purple hover:bg-alumni-wine text-white px-10 py-4 rounded-xl font-bold text-lg transition shadow-lg">
+                            Garantir acesso às masterclasses
                         </a>
                     </div>
 
                     <div>
-                        <img src="https://picsum.photos/seed/masterclass-teacher/600/500" alt="Professora conduzindo masterclass ao vivo no Zoom com alunos participando ativamente" class="rounded-2xl shadow-2xl w-full" loading="lazy">
+                        <img src="https://picsum.photos/seed/masterclass-plaza/700/600" alt="Plaza histórica espanhola com arquitetura colonial" class="rounded-3xl shadow-2xl w-full" loading="lazy">
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Depoimentos -->
-        <section class="py-16 md:py-24 bg-gray-50">
-            <div class="container mx-auto px-4 max-w-6xl">
+        <section class="py-20 md:py-28 bg-gradient-to-br from-gray-50 to-white">
+            <div class="container mx-auto px-4 max-w-7xl">
                 <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold text-brand-dark mb-4">
-                        Quem já aprendeu com a gente
+                    <h2 class="text-4xl md:text-5xl font-bold text-alumni-dark mb-4">
+                        Resultados reais de quem confiou na Alumni
                     </h2>
-                    <p class="text-xl text-gray-600">
-                        Mais de 5.000 alunos impactados nas nossas plataformas
+                    <p class="text-xl text-gray-600 max-w-4xl mx-auto">
+                        Mais de <strong class="text-alumni-purple">500.000 alunos</strong> já impulsionaram suas vidas e carreiras com nosso método comprovado e plataforma inteligente
                     </p>
                 </div>
 
                 <div class="grid md:grid-cols-3 gap-8">
-                    <div class="bg-white rounded-xl p-6 shadow-lg">
-                        <div class="flex items-center gap-4 mb-4">
-                            <img src="https://i.pravatar.cc/100?img=1" alt="Foto de Mariana Silva" class="w-16 h-16 rounded-full" loading="lazy">
+                    <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
+                        <div class="flex items-center gap-4 mb-6">
+                            <img src="https://i.pravatar.cc/80?img=1" alt="Foto de Mariana Silva" class="w-16 h-16 rounded-full" loading="lazy">
                             <div>
-                                <div class="font-bold text-brand-dark">Mariana Silva</div>
+                                <div class="font-bold text-alumni-dark text-lg">Mariana Silva</div>
                                 <div class="text-sm text-gray-600">Analista de Marketing, São Paulo</div>
                             </div>
                         </div>
-                        <div class="text-yellow-400 mb-3" aria-label="5 estrelas">★★★★★</div>
-                        <p class="text-gray-700">
-                            "Em 6 meses consegui me comunicar em viagens e reuniões internacionais. O método de pre-class + live é perfeito para quem trabalha."
+                        <p class="text-gray-700 leading-relaxed">
+                            "A metodologia da Alumni foi um divisor de águas para mim. O formato pre-class + live se encaixou perfeitamente na minha rotina corrida, em apenas 6 meses, já me sentia confiante para falar em viagens e reuniões."
                         </p>
                     </div>
 
-                    <div class="bg-white rounded-xl p-6 shadow-lg">
-                        <div class="flex items-center gap-4 mb-4">
-                            <img src="https://i.pravatar.cc/100?img=13" alt="Foto de Carlos Mendes" class="w-16 h-16 rounded-full" loading="lazy">
+                    <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
+                        <div class="flex items-center gap-4 mb-6">
+                            <img src="https://i.pravatar.cc/80?img=13" alt="Foto de Carlos Mendes" class="w-16 h-16 rounded-full" loading="lazy">
                             <div>
-                                <div class="font-bold text-brand-dark">Carlos Mendes</div>
+                                <div class="font-bold text-alumni-dark text-lg">Carlos Mendes</div>
                                 <div class="text-sm text-gray-600">Engenheiro, Rio de Janeiro</div>
                             </div>
                         </div>
-                        <div class="text-yellow-400 mb-3" aria-label="5 estrelas">★★★★★</div>
-                        <p class="text-gray-700">
-                            "Tinha pavor de falar em outro idioma. Os professores criam um ambiente seguro e em 3 meses já estava conversando nas lives sem medo."
+                        <p class="text-gray-700 leading-relaxed">
+                            "O ambiente criado pelos professores e a estrutura clara do curso fizeram toda a diferença. Em poucos meses, com o apoio da plataforma e da metodologia, eu superei o medo de falar em um novo idioma"
                         </p>
                     </div>
 
-                    <div class="bg-white rounded-xl p-6 shadow-lg">
-                        <div class="flex items-center gap-4 mb-4">
-                            <img src="https://i.pravatar.cc/100?img=5" alt="Foto de Beatriz Costa" class="w-16 h-16 rounded-full" loading="lazy">
+                    <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
+                        <div class="flex items-center gap-4 mb-6">
+                            <img src="https://i.pravatar.cc/80?img=5" alt="Foto de Beatriz Costa" class="w-16 h-16 rounded-full" loading="lazy">
                             <div>
-                                <div class="font-bold text-brand-dark">Beatriz Costa</div>
+                                <div class="font-bold text-alumni-dark text-lg">Beatriz Costa</div>
                                 <div class="text-sm text-gray-600">Advogada, Belo Horizonte</div>
                             </div>
                         </div>
-                        <div class="text-yellow-400 mb-3" aria-label="5 estrelas">★★★★★</div>
-                        <p class="text-gray-700">
-                            "Flexibilidade total! Assisto as pre-class no metrô e participo das lives à noite. Em 1 ano completei os 4 níveis e hoje trabalho com clientes da América Latina."
+                        <p class="text-gray-700 leading-relaxed">
+                            "A flexibilidade do curso foi essencial: assistia às preclases no metrô e participava das lives à noite. A clareza do método e a qualidade da plataforma me fizeram avançar rápido, hoje atendo clientes globais com segurança."
                         </p>
                     </div>
                 </div>
@@ -581,114 +632,114 @@
         </section>
 
         <!-- FAQ -->
-        <section id="faq" class="py-16 md:py-24 bg-white">
+        <section id="faq" class="py-20 md:py-28 bg-white">
             <div class="container mx-auto px-4 max-w-4xl">
                 <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold text-brand-dark mb-4">
-                        Perguntas frequentes
+                    <h2 class="text-4xl md:text-5xl font-bold text-alumni-dark mb-4">
+                        Tudo o que você precisa saber<br>antes de começar
                     </h2>
                     <p class="text-xl text-gray-600">
-                        Tire suas dúvidas antes de garantir sua vaga
+                        Tire suas dúvidas e garanta sua vaga com confiança
                     </p>
                 </div>
 
                 <div class="space-y-4">
-                    <details class="bg-gray-50 rounded-lg p-6 hover:bg-gray-100 transition">
-                        <summary class="font-bold text-lg text-brand-dark cursor-pointer list-none flex justify-between items-center">
-                            Quando começam as aulas?
-                            <span class="text-brand-blue text-2xl" aria-hidden="true">+</span>
+                    <details class="bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition group">
+                        <summary class="font-bold text-lg text-alumni-dark cursor-pointer list-none flex justify-between items-center">
+                            <span>Quando começam as aulas?</span>
+                            <span class="text-alumni-purple text-2xl group-open:rotate-45 transition-transform">+</span>
                         </summary>
-                        <p class="text-gray-700 mt-4">
+                        <p class="text-gray-700 mt-4 leading-relaxed">
                             As aulas regulares começam em <strong>janeiro de 2026</strong>. Alunos da pré-venda Black Friday ganham acesso às masterclasses exclusivas em dezembro de 2025.
                         </p>
                     </details>
 
-                    <details class="bg-gray-50 rounded-lg p-6 hover:bg-gray-100 transition">
-                        <summary class="font-bold text-lg text-brand-dark cursor-pointer list-none flex justify-between items-center">
-                            Preciso ter conhecimento prévio de espanhol?
-                            <span class="text-brand-blue text-2xl" aria-hidden="true">+</span>
+                    <details class="bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition group">
+                        <summary class="font-bold text-lg text-alumni-dark cursor-pointer list-none flex justify-between items-center">
+                            <span>Preciso ter conhecimento prévio de espanhol?</span>
+                            <span class="text-alumni-purple text-2xl group-open:rotate-45 transition-transform">+</span>
                         </summary>
-                        <p class="text-gray-700 mt-4">
+                        <p class="text-gray-700 mt-4 leading-relaxed">
                             Não! Oferecemos <strong>4 níveis</strong>, desde iniciante absoluto até avançado. Você será posicionado no nível ideal através de uma avaliação diagnóstica.
                         </p>
                     </details>
 
-                    <details class="bg-gray-50 rounded-lg p-6 hover:bg-gray-100 transition">
-                        <summary class="font-bold text-lg text-brand-dark cursor-pointer list-none flex justify-between items-center">
-                            Como funcionam os horários das aulas ao vivo?
-                            <span class="text-brand-blue text-2xl" aria-hidden="true">+</span>
+                    <details class="bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition group">
+                        <summary class="font-bold text-lg text-alumni-dark cursor-pointer list-none flex justify-between items-center">
+                            <span>Como funcionam os horários das aulas ao vivo?</span>
+                            <span class="text-alumni-purple text-2xl group-open:rotate-45 transition-transform">+</span>
                         </summary>
-                        <p class="text-gray-700 mt-4">
+                        <p class="text-gray-700 mt-4 leading-relaxed">
                             As aulas ao vivo acontecem no Zoom em diversos horários (manhã, tarde e noite) para você escolher o melhor turno. São cerca de <strong>1 aula por semana de 60-90 minutos</strong>.
                         </p>
                     </details>
 
-                    <details class="bg-gray-50 rounded-lg p-6 hover:bg-gray-100 transition">
-                        <summary class="font-bold text-lg text-brand-dark cursor-pointer list-none flex justify-between items-center">
-                            E se eu perder uma aula ao vivo?
-                            <span class="text-brand-blue text-2xl" aria-hidden="true">+</span>
+                    <details class="bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition group">
+                        <summary class="font-bold text-lg text-alumni-dark cursor-pointer list-none flex justify-between items-center">
+                            <span>E se eu perder uma aula ao vivo?</span>
+                            <span class="text-alumni-purple text-2xl group-open:rotate-45 transition-transform">+</span>
                         </summary>
-                        <p class="text-gray-700 mt-4">
+                        <p class="text-gray-700 mt-4 leading-relaxed">
                             Todas as aulas ficam <strong>gravadas e disponíveis na plataforma por 30 dias</strong>. Você pode assistir quando quiser.
                         </p>
                     </details>
 
-                    <details class="bg-gray-50 rounded-lg p-6 hover:bg-gray-100 transition">
-                        <summary class="font-bold text-lg text-brand-dark cursor-pointer list-none flex justify-between items-center">
-                            Quanto tempo dura cada nível?
-                            <span class="text-brand-blue text-2xl" aria-hidden="true">+</span>
+                    <details class="bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition group">
+                        <summary class="font-bold text-lg text-alumni-dark cursor-pointer list-none flex justify-between items-center">
+                            <span>Quanto tempo dura cada nível?</span>
+                            <span class="text-alumni-purple text-2xl group-open:rotate-45 transition-transform">+</span>
                         </summary>
-                        <p class="text-gray-700 mt-4">
+                        <p class="text-gray-700 mt-4 leading-relaxed">
                             Cada nível tem duração média de <strong>3 meses</strong>, totalizando 12 meses para completar os 4 níveis. O ritmo pode variar conforme sua dedicação.
                         </p>
                     </details>
 
-                    <details class="bg-gray-50 rounded-lg p-6 hover:bg-gray-100 transition">
-                        <summary class="font-bold text-lg text-brand-dark cursor-pointer list-none flex justify-between items-center">
-                            Vou receber certificado?
-                            <span class="text-brand-blue text-2xl" aria-hidden="true">+</span>
+                    <details class="bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition group">
+                        <summary class="font-bold text-lg text-alumni-dark cursor-pointer list-none flex justify-between items-center">
+                            <span>Vou receber certificado?</span>
+                            <span class="text-alumni-purple text-2xl group-open:rotate-45 transition-transform">+</span>
                         </summary>
-                        <p class="text-gray-700 mt-4">
+                        <p class="text-gray-700 mt-4 leading-relaxed">
                             Sim! Você recebe <strong>certificado digital</strong> ao concluir cada um dos 4 níveis, após aprovação na avaliação final.
                         </p>
                     </details>
 
-                    <details class="bg-gray-50 rounded-lg p-6 hover:bg-gray-100 transition">
-                        <summary class="font-bold text-lg text-brand-dark cursor-pointer list-none flex justify-between items-center">
-                            Posso pagar em boleto ou só cartão?
-                            <span class="text-brand-blue text-2xl" aria-hidden="true">+</span>
+                    <details class="bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition group">
+                        <summary class="font-bold text-lg text-alumni-dark cursor-pointer list-none flex justify-between items-center">
+                            <span>Posso pagar em boleto ou só cartão?</span>
+                            <span class="text-alumni-purple text-2xl group-open:rotate-45 transition-transform">+</span>
                         </summary>
-                        <p class="text-gray-700 mt-4">
+                        <p class="text-gray-700 mt-4 leading-relaxed">
                             Aceitamos <strong>cartão de crédito</strong> (parcelamento em até 12x) e <strong>PIX</strong>. Entre em contato pelo WhatsApp para outras opções.
                         </p>
                     </details>
 
-                    <details class="bg-gray-50 rounded-lg p-6 hover:bg-gray-100 transition">
-                        <summary class="font-bold text-lg text-brand-dark cursor-pointer list-none flex justify-between items-center">
-                            Existe política de reembolso?
-                            <span class="text-brand-blue text-2xl" aria-hidden="true">+</span>
+                    <details class="bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition group">
+                        <summary class="font-bold text-lg text-alumni-dark cursor-pointer list-none flex justify-between items-center">
+                            <span>Existe política de reembolso?</span>
+                            <span class="text-alumni-purple text-2xl group-open:rotate-45 transition-transform">+</span>
                         </summary>
-                        <p class="text-gray-700 mt-4">
+                        <p class="text-gray-700 mt-4 leading-relaxed">
                             Sim. Você tem <strong>7 dias de garantia</strong> após o início das aulas regulares (janeiro/2026) para solicitar reembolso integral.
                         </p>
                     </details>
 
-                    <details class="bg-gray-50 rounded-lg p-6 hover:bg-gray-100 transition">
-                        <summary class="font-bold text-lg text-brand-dark cursor-pointer list-none flex justify-between items-center">
-                            Terei suporte durante o curso?
-                            <span class="text-brand-blue text-2xl" aria-hidden="true">+</span>
+                    <details class="bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition group">
+                        <summary class="font-bold text-lg text-alumni-dark cursor-pointer list-none flex justify-between items-center">
+                            <span>Terei suporte durante o curso?</span>
+                            <span class="text-alumni-purple text-2xl group-open:rotate-45 transition-transform">+</span>
                         </summary>
-                        <p class="text-gray-700 mt-4">
+                        <p class="text-gray-700 mt-4 leading-relaxed">
                             Sim! Você tem acesso a <strong>suporte via WhatsApp</strong> e comunidade de alunos para tirar dúvidas, praticar e trocar experiências.
                         </p>
                     </details>
 
-                    <details class="bg-gray-50 rounded-lg p-6 hover:bg-gray-100 transition">
-                        <summary class="font-bold text-lg text-brand-dark cursor-pointer list-none flex justify-between items-center">
-                            O que são as masterclasses de dezembro?
-                            <span class="text-brand-blue text-2xl" aria-hidden="true">+</span>
+                    <details class="bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition group">
+                        <summary class="font-bold text-lg text-alumni-dark cursor-pointer list-none flex justify-between items-center">
+                            <span>O que são as masterclasses de dezembro?</span>
+                            <span class="text-alumni-purple text-2xl group-open:rotate-45 transition-transform">+</span>
                         </summary>
-                        <p class="text-gray-700 mt-4">
+                        <p class="text-gray-700 mt-4 leading-relaxed">
                             São <strong>aulas ao vivo exclusivas</strong> para quem garantir vaga na pré-venda Black Friday. Acontecem em dezembro e preparam você para aproveitar melhor o curso: destravar a fala, sotaques, cultura latina e mais.
                         </p>
                     </details>
@@ -697,24 +748,27 @@
         </section>
 
         <!-- Quem Somos -->
-        <section class="py-16 md:py-24 bg-gray-50">
+        <section class="py-20 md:py-28 bg-gradient-to-br from-alumni-purple via-alumni-wine to-alumni-dark text-white">
             <div class="container mx-auto px-4 max-w-6xl">
-                <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <img src="https://picsum.photos/seed/alumni-team/600/400" alt="Equipe Alumni by Better reunida em ambiente moderno de ensino" class="rounded-2xl shadow-2xl w-full" loading="lazy">
+                <div class="max-w-3xl mx-auto text-center">
+                    <div class="mb-8">
+                        <div class="text-white font-bold text-4xl mb-2">alumni</div>
+                        <div class="text-alumni-yellow text-sm tracking-wider">by Better</div>
                     </div>
-                    <div>
-                        <h2 class="text-3xl md:text-4xl font-bold text-brand-dark mb-6">
-                            Alumni by Better
-                        </h2>
-                        <p class="text-lg text-gray-700 mb-6">
-                            Somos uma escola de idiomas que acredita em aprendizado real, prático e focado em conversação. Nascemos da <strong>Better</strong>, empresa de educação com mais de 5 anos transformando a forma como brasileiros aprendem.
+
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                        Alumni by Better
+                    </h2>
+
+                    <div class="space-y-4 text-lg text-gray-200 leading-relaxed">
+                        <p>
+                            Somos uma escola de idiomas que acredita em aprendizado real, prático e focado em conversação. Nascemos da <strong className="text-white">Better</strong>, empresa de educação com mais de 5 anos transformando a forma como brasileiros aprendem.
                         </p>
-                        <p class="text-lg text-gray-700 mb-6">
-                            Nossa missão é simples: <strong>fazer você falar espanhol de verdade</strong>. Sem enrolação, sem gramática pesada demais, sem ficar anos estudando para nunca usar. Aqui você aprende fazendo — e em 12 meses sai falando com confiança.
+                        <p>
+                            Nossa missão é simples: <strong className="text-alumni-yellow">fazer você falar espanhol de verdade</strong>. Sem enrolação, sem gramática pesada demais, sem ficar anos estudando para nunca usar. Aqui você aprende fazendo e em 12 meses sai falando com confiança.
                         </p>
-                        <p class="text-lg text-gray-700">
-                            Mais de <strong>5.000 alunos</strong> já passaram pelas nossas plataformas. Agora é a sua vez.
+                        <p>
+                            Mais de <strong className="text-alumni-yellow">5.000 alunos</strong> já passaram pelas nossas plataformas. Agora é a sua vez.
                         </p>
                     </div>
                 </div>
@@ -722,119 +776,89 @@
         </section>
 
         <!-- Conversão Final -->
-        <section id="inscricao" class="py-16 md:py-24 bg-gradient-to-br from-brand-blue to-blue-800 text-white">
-            <div class="container mx-auto px-4 max-w-4xl">
+        <section id="inscricao" class="py-20 md:py-28 bg-gradient-to-br from-alumni-dark via-alumni-purple to-alumni-wine text-white relative overflow-hidden">
+            <div class="absolute inset-0 opacity-10">
+                <div class="absolute top-0 left-0 w-96 h-96 bg-alumni-pink rounded-full blur-3xl"></div>
+                <div class="absolute bottom-0 right-0 w-96 h-96 bg-purple-600 rounded-full blur-3xl"></div>
+            </div>
+
+            <div class="container mx-auto px-4 max-w-4xl relative z-10">
                 <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                        Comece o ano falando espanhol — sem enrolação, sem desculpas
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+                        Comece o ano<br>
+                        falando espanhol.<br>
+                        Sem enrolação,<br>
+                        sem desculpas
                     </h2>
                     <p class="text-xl mb-2">
-                        Garanta sua vaga na pré-venda Black Friday
+                        Garanta sua vaga na pré-venda Black Friday Alumni
                     </p>
-                    <p class="text-2xl font-bold text-brand-lime">
+                    <p class="text-3xl font-bold text-alumni-yellow">
                         R$ 149/mês por 12 meses (50% OFF)
                     </p>
                 </div>
 
-                <div class="grid md:grid-cols-2 gap-8">
-                    <!-- Opção A: WhatsApp -->
-                    <div class="bg-white text-gray-900 rounded-2xl p-8 shadow-2xl">
-                        <div class="text-4xl mb-4 text-center" aria-hidden="true">💬</div>
-                        <h3 class="text-2xl font-bold text-center mb-4">Fale com especialista</h3>
-                        <p class="text-gray-600 text-center mb-6">
-                            Tire dúvidas e garanta sua vaga direto no WhatsApp
-                        </p>
-                        <a href="https://wa.me/5511999999999?text=Ol%C3%A1%21%20Quero%20garantir%20minha%20vaga%20no%20curso%20de%20Espanhol%20Alumni%20by%20Better%20com%2050%25%20OFF%20%F0%9F%8E%93" target="_blank" rel="noopener noreferrer" class="block w-full bg-green-500 text-white text-center px-6 py-4 rounded-lg font-bold text-lg hover:bg-green-600 transition shadow-lg">
-                            Abrir WhatsApp
-                        </a>
-                    </div>
-
-                    <!-- Opção B: Formulário -->
-                    <div class="bg-white text-gray-900 rounded-2xl p-8 shadow-2xl">
-                        <div class="text-4xl mb-4 text-center" aria-hidden="true">📝</div>
-                        <h3 class="text-2xl font-bold text-center mb-4">Solicite contato</h3>
-                        <p class="text-gray-600 text-center mb-6">
-                            Preencha e nossa equipe entrará em contato
-                        </p>
+                <div class="max-w-md mx-auto">
+                    <div class="bg-white text-gray-900 rounded-3xl p-8 shadow-2xl">
+                        <h3 class="text-2xl font-bold text-center mb-2 text-alumni-dark">Solicite o contato de</h3>
+                        <h3 class="text-2xl font-bold text-center mb-8 text-alumni-dark">nossos consultores</h3>
 
                         <form id="leadForm" class="space-y-4">
                             <div>
-                                <label for="nome" class="block text-sm font-semibold text-gray-700 mb-1">
-                                    Nome completo *
-                                </label>
                                 <input
                                     type="text"
                                     id="nome"
                                     name="nome"
                                     required
-                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-transparent"
+                                    placeholder="Nome"
+                                    class="w-full px-4 py-4 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-alumni-purple focus:border-transparent text-base"
                                     aria-required="true"
+                                    aria-label="Nome completo"
                                 >
                             </div>
 
                             <div>
-                                <label for="email" class="block text-sm font-semibold text-gray-700 mb-1">
-                                    E-mail *
-                                </label>
                                 <input
                                     type="email"
                                     id="email"
                                     name="email"
                                     required
-                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-transparent"
+                                    placeholder="Email"
+                                    class="w-full px-4 py-4 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-alumni-purple focus:border-transparent text-base"
                                     aria-required="true"
+                                    aria-label="E-mail"
                                 >
                             </div>
 
                             <div>
-                                <label for="telefone" class="block text-sm font-semibold text-gray-700 mb-1">
-                                    Telefone/WhatsApp *
-                                </label>
                                 <input
                                     type="tel"
                                     id="telefone"
                                     name="telefone"
                                     required
-                                    placeholder="(11) 99999-9999"
-                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-transparent"
+                                    placeholder="WhatsApp"
+                                    class="w-full px-4 py-4 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-alumni-purple focus:border-transparent text-base"
                                     aria-required="true"
+                                    aria-label="Telefone WhatsApp"
                                 >
-                            </div>
-
-                            <div class="flex items-start gap-2">
-                                <input
-                                    type="checkbox"
-                                    id="lgpd"
-                                    name="lgpd"
-                                    required
-                                    class="mt-1 w-4 h-4 text-brand-blue border-gray-300 rounded focus:ring-2 focus:ring-brand-blue"
-                                    aria-required="true"
-                                >
-                                <label for="lgpd" class="text-sm text-gray-700">
-                                    Autorizo o contato e o tratamento dos dados conforme a
-                                    <a href="#privacy" class="text-brand-blue underline hover:text-blue-700">Política de Privacidade</a>. *
-                                </label>
                             </div>
 
                             <button
                                 type="submit"
-                                class="w-full bg-brand-blue text-white px-6 py-4 rounded-lg font-bold text-lg hover:bg-blue-700 transition shadow-lg"
+                                class="w-full bg-alumni-purple hover:bg-alumni-wine text-white px-6 py-4 rounded-xl font-bold text-lg transition shadow-lg"
                             >
                                 Garantir minha vaga
                             </button>
-
-                            <p class="text-xs text-gray-600 text-center">
-                                Você poderá cancelar sua inscrição a qualquer momento.
-                            </p>
                         </form>
 
-                        <div id="successMessage" class="hidden mt-4 p-4 bg-green-100 text-green-800 rounded-lg text-center">
-                            <strong>Obrigado!</strong> Recebemos seu contato. Nossa equipe entrará em contato em breve. Seus dados estão protegidos conforme nossa Política de Privacidade.
+                        <div id="successMessage" class="hidden mt-6 p-6 bg-green-100 text-green-800 rounded-xl text-center">
+                            <strong class="text-xl">Obrigado!</strong>
+                            <p class="mt-2">Recebemos seu contato. Nossa equipe entrará em contato em breve.</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="text-center mt-12">
+                <div class="text-center mt-10">
                     <p class="text-sm text-gray-200">
                         ✓ Acesso às masterclasses de dezembro • ✓ Garantia de 7 dias • ✓ Suporte dedicado
                     </p>
@@ -844,48 +868,38 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-brand-dark text-white py-12">
-        <div class="container mx-auto px-4 max-w-6xl">
-            <div class="grid md:grid-cols-4 gap-8 mb-8">
+    <footer class="bg-alumni-dark text-white py-12">
+        <div class="container mx-auto px-4 max-w-7xl">
+            <div class="grid md:grid-cols-3 gap-12 mb-8">
                 <div>
-                    <div class="flex items-center gap-2 mb-4">
-                        <span class="text-2xl" aria-hidden="true">🎓</span>
-                        <div>
-                            <div class="font-bold text-xl">Alumni</div>
-                            <div class="text-xs text-gray-400">by Better</div>
-                        </div>
+                    <div class="mb-6">
+                        <div class="text-white font-bold text-3xl mb-1">alumni</div>
+                        <div class="text-gray-400 text-xs">by Better</div>
                     </div>
-                    <p class="text-gray-400 text-sm">
-                        Fale espanhol com aulas ao vivo e método flexível.
-                    </p>
                 </div>
 
                 <div>
-                    <h3 class="font-bold mb-4">Links úteis</h3>
-                    <ul class="space-y-2 text-sm">
-                        <li><a href="#como-funciona" class="text-gray-400 hover:text-brand-lime transition">Como funciona</a></li>
-                        <li><a href="#oferta" class="text-gray-400 hover:text-brand-lime transition">Oferta</a></li>
-                        <li><a href="#bonus" class="text-gray-400 hover:text-brand-lime transition">Bônus</a></li>
-                        <li><a href="#faq" class="text-gray-400 hover:text-brand-lime transition">FAQ</a></li>
+                    <h3 class="font-bold mb-4 text-lg">Links úteis</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#como-funciona" class="text-gray-400 hover:text-alumni-yellow transition">Como funciona</a></li>
+                        <li><a href="#oferta" class="text-gray-400 hover:text-alumni-yellow transition">Oferta</a></li>
+                        <li><a href="#bonus" class="text-gray-400 hover:text-alumni-yellow transition">Bônus</a></li>
+                        <li><a href="#faq" class="text-gray-400 hover:text-alumni-yellow transition">FAQ</a></li>
                     </ul>
                 </div>
 
                 <div>
-                    <h3 class="font-bold mb-4">Legal</h3>
-                    <ul class="space-y-2 text-sm">
-                        <li><a href="#privacy" class="text-gray-400 hover:text-brand-lime transition">Política de Privacidade</a></li>
-                        <li><a href="#terms" class="text-gray-400 hover:text-brand-lime transition">Termos e Condições</a></li>
-                        <li><a href="mailto:contato@alumnibybetter.com.br" class="text-gray-400 hover:text-brand-lime transition">Suporte</a></li>
+                    <h3 class="font-bold mb-4 text-lg">Legal</h3>
+                    <ul class="space-y-3 text-sm mb-6">
+                        <li><a href="#privacy" class="text-gray-400 hover:text-alumni-yellow transition">Política de Privacidade</a></li>
+                        <li><a href="#terms" class="text-gray-400 hover:text-alumni-yellow transition">Termos e Condições</a></li>
                     </ul>
-                </div>
 
-                <div>
-                    <h3 class="font-bold mb-4">Contato</h3>
+                    <h3 class="font-bold mb-4 text-lg">Contato</h3>
                     <ul class="space-y-2 text-sm text-gray-400">
-                        <li>CNPJ: 12.345.678/0001-90</li>
-                        <li>São Paulo, SP - Brasil</li>
+                        <li>CNPJ: 53.286.868/0001-66</li>
                         <li>
-                            <a href="mailto:contato@alumnibybetter.com.br" class="hover:text-brand-lime transition">
+                            <a href="mailto:contato@alumnibybetter.com.br" class="hover:text-alumni-yellow transition">
                                 contato@alumnibybetter.com.br
                             </a>
                         </li>
@@ -899,22 +913,11 @@
         </div>
     </footer>
 
-    <!-- Sticky CTA Mobile -->
-    <div class="fixed bottom-0 left-0 right-0 bg-white border-t-2 border-brand-lime p-4 shadow-lg md:hidden z-40" id="stickyCTA">
-        <a href="#inscricao" class="block w-full bg-brand-blue text-white text-center px-6 py-3 rounded-lg font-bold hover:bg-blue-700 transition">
-            Garantir vaga R$149/mês
-        </a>
-    </div>
-
     <!-- Scripts -->
     <script>
         // Countdown Timer (America/Sao_Paulo timezone)
         function updateCountdown() {
-            // Target: 30/11/2025 23:59:59 America/Sao_Paulo
-            // Convert to UTC (America/Sao_Paulo is UTC-3, but we need to account for DST)
-            // For simplicity, using UTC-3
             const targetDate = new Date('2025-11-30T23:59:59-03:00').getTime();
-
             const now = new Date().getTime();
             const distance = targetDate - now;
 
@@ -959,11 +962,9 @@
             const formData = {
                 nome: document.getElementById('nome').value,
                 email: document.getElementById('email').value,
-                telefone: document.getElementById('telefone').value,
-                lgpd: document.getElementById('lgpd').checked
+                telefone: document.getElementById('telefone').value
             };
 
-            // Here you would send data to your backend
             console.log('Form submitted:', formData);
 
             // Track conversion
@@ -997,7 +998,7 @@
 
         showCookieBanner();
 
-        // Smooth Scroll (already in CSS, but ensure it works for all links)
+        // Smooth Scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 const href = this.getAttribute('href');
@@ -1013,24 +1014,6 @@
                 }
             });
         });
-
-        // Hide sticky CTA when scrolling to footer
-        const stickyCTA = document.getElementById('stickyCTA');
-        const footer = document.querySelector('footer');
-
-        if (stickyCTA && footer) {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        stickyCTA.style.display = 'none';
-                    } else {
-                        stickyCTA.style.display = 'block';
-                    }
-                });
-            });
-
-            observer.observe(footer);
-        }
     </script>
 </body>
 </html>
