@@ -794,13 +794,15 @@
 
             console.log('=== CLINT CRM DEBUG ===');
             console.log('Form Data:', formData);
-            console.log('Webhook URL:', 'https://functions-api.clint.digital/endpoints/integration/webhook/6bc6bcdd-198e-4de6-af06-50b004d8a062');
 
-            // Enviar para webhook Clint CRM
+            // Enviar para webhook Clint CRM via CORS Proxy
             try {
                 console.log('Enviando requisição para Clint CRM...');
+
+                // Tentar envio direto primeiro
                 const response = await fetch('https://functions-api.clint.digital/endpoints/integration/webhook/6bc6bcdd-198e-4de6-af06-50b004d8a062', {
                     method: 'POST',
+                    mode: 'cors',
                     headers: {
                         'Content-Type': 'application/json',
                     },
@@ -810,7 +812,6 @@
                 console.log('Response Status:', response.status);
                 console.log('Response Status Text:', response.statusText);
 
-                // Tentar ler o body da resposta
                 const responseText = await response.text();
                 console.log('Response Body:', responseText);
 
@@ -824,6 +825,29 @@
             } catch (error) {
                 console.error('❌ Erro na requisição para Clint CRM:', error);
                 console.error('Error details:', error.message);
+                console.error('Error type:', error.name);
+
+                // Se falhar por CORS, tentar com proxy público
+                if (error.name === 'TypeError') {
+                    console.log('🔄 Tentando via proxy CORS...');
+                    try {
+                        const proxyResponse = await fetch('https://corsproxy.io/?' + encodeURIComponent('https://functions-api.clint.digital/endpoints/integration/webhook/6bc6bcdd-198e-4de6-af06-50b004d8a062'), {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify(formData)
+                        });
+
+                        if (proxyResponse.ok) {
+                            console.log('✅ Lead enviado via proxy com sucesso!');
+                        } else {
+                            console.error('❌ Proxy também falhou:', proxyResponse.status);
+                        }
+                    } catch (proxyError) {
+                        console.error('❌ Erro no proxy:', proxyError);
+                    }
+                }
             }
             console.log('=== FIM DEBUG ===');
 
