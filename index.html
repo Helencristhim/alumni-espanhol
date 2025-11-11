@@ -783,16 +783,41 @@
         });
 
         // Form
-        document.getElementById('leadForm')?.addEventListener('submit', function(e) {
+        document.getElementById('leadForm')?.addEventListener('submit', async function(e) {
             e.preventDefault();
+
             const formData = {
                 nome: document.getElementById('nome').value,
                 email: document.getElementById('email').value,
                 telefone: document.getElementById('telefone').value
             };
+
             console.log('Form submitted:', formData);
+
+            // Enviar para webhook Clint CRM
+            try {
+                const response = await fetch('https://functions-api.clint.digital/endpoints/integration/webhook/6bc6bcdd-198e-4de6-af06-50b004d8a062', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                if (response.ok) {
+                    console.log('Lead enviado com sucesso para Clint CRM');
+                } else {
+                    console.error('Erro ao enviar lead para Clint CRM:', response.status);
+                }
+            } catch (error) {
+                console.error('Erro na requisição para Clint CRM:', error);
+            }
+
+            // Tracking
             if (typeof fbq !== 'undefined') fbq('track', 'Lead');
             if (typeof gtag !== 'undefined') gtag('event', 'generate_lead');
+
+            // Mostrar mensagem de sucesso
             document.getElementById('leadForm').classList.add('hidden');
             document.getElementById('successMessage').classList.remove('hidden');
         });
