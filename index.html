@@ -693,7 +693,6 @@
                             <div id="successMessage" class="hidden mt-6 p-6 bg-green-100 text-green-800 rounded-xl text-center">
                                 <strong class="text-xl">Obrigado!</strong>
                                 <p class="mt-2">Recebemos seu contato. Nossa equipe entrará em contato em breve.</p>
-                                <div id="debugContent" class="mt-4 p-4 bg-white rounded text-left text-xs font-mono max-h-64 overflow-auto"></div>
                             </div>
                         </div>
                     </div>
@@ -793,66 +792,24 @@
                 telefone: document.getElementById('telefone').value
             };
 
-            let debugLog = '=== CLINT CRM DEBUG ===\n';
-            debugLog += 'Form Data: ' + JSON.stringify(formData, null, 2) + '\n\n';
-
-            // Enviar para webhook Clint CRM
+            // Enviar para webhook Clint CRM via proxy
             try {
-                debugLog += '📤 Enviando requisição para Clint CRM...\n';
-                debugLog += 'URL: https://functions-api.clint.digital/endpoints/integration/webhook/...\n\n';
-
-                const response = await fetch('https://functions-api.clint.digital/endpoints/integration/webhook/6bc6bcdd-198e-4de6-af06-50b004d8a062', {
+                const response = await fetch('https://corsproxy.io/?' + encodeURIComponent('https://functions-api.clint.digital/endpoints/integration/webhook/6bc6bcdd-198e-4de6-af06-50b004d8a062'), {
                     method: 'POST',
-                    mode: 'cors',
                     headers: {
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify(formData)
                 });
 
-                debugLog += 'Response Status: ' + response.status + '\n';
-                debugLog += 'Response Status Text: ' + response.statusText + '\n';
-
-                const responseText = await response.text();
-                debugLog += 'Response Body: ' + responseText + '\n\n';
-
                 if (response.ok) {
-                    debugLog += '✅ Lead enviado com sucesso para Clint CRM!\n';
+                    console.log('✅ Lead enviado com sucesso para Clint CRM');
                 } else {
-                    debugLog += '❌ Erro ao enviar lead para Clint CRM\n';
-                    debugLog += 'Status Code: ' + response.status + '\n';
+                    console.error('❌ Erro ao enviar lead:', response.status);
                 }
             } catch (error) {
-                debugLog += '❌ ERRO na requisição: ' + error.message + '\n';
-                debugLog += 'Error Type: ' + error.name + '\n\n';
-
-                // Se falhar por CORS, tentar com proxy
-                if (error.name === 'TypeError') {
-                    debugLog += '🔄 Tentando via proxy CORS...\n';
-                    try {
-                        const proxyResponse = await fetch('https://corsproxy.io/?' + encodeURIComponent('https://functions-api.clint.digital/endpoints/integration/webhook/6bc6bcdd-198e-4de6-af06-50b004d8a062'), {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json',
-                            },
-                            body: JSON.stringify(formData)
-                        });
-
-                        if (proxyResponse.ok) {
-                            debugLog += '✅ Lead enviado via proxy com sucesso!\n';
-                        } else {
-                            debugLog += '❌ Proxy falhou: ' + proxyResponse.status + '\n';
-                        }
-                    } catch (proxyError) {
-                        debugLog += '❌ Erro no proxy: ' + proxyError.message + '\n';
-                    }
-                }
+                console.error('❌ Erro na integração com Clint CRM:', error);
             }
-
-            debugLog += '\n=== FIM DEBUG ===';
-
-            // Mostrar debug na tela
-            document.getElementById('debugContent').textContent = debugLog;
 
             // Tracking
             if (typeof fbq !== 'undefined') fbq('track', 'Lead');
