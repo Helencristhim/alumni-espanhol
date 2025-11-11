@@ -693,11 +693,7 @@
                             <div id="successMessage" class="hidden mt-6 p-6 bg-green-100 text-green-800 rounded-xl text-center">
                                 <strong class="text-xl">Obrigado!</strong>
                                 <p class="mt-2">Recebemos seu contato. Nossa equipe entrará em contato em breve.</p>
-                            </div>
-
-                            <div id="debugMessage" class="hidden mt-6 p-6 bg-blue-100 text-blue-900 rounded-xl text-left text-xs overflow-auto max-h-96">
-                                <strong class="text-sm block mb-2">📋 Debug Info (Clint CRM):</strong>
-                                <pre id="debugContent" class="whitespace-pre-wrap font-mono"></pre>
+                                <div id="debugContent" class="mt-4 p-4 bg-white rounded text-left text-xs font-mono max-h-64 overflow-auto"></div>
                             </div>
                         </div>
                     </div>
@@ -857,7 +853,6 @@
 
             // Mostrar debug na tela
             document.getElementById('debugContent').textContent = debugLog;
-            document.getElementById('debugMessage').classList.remove('hidden');
 
             // Tracking
             if (typeof fbq !== 'undefined') fbq('track', 'Lead');
