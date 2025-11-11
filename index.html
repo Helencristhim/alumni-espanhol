@@ -694,6 +694,11 @@
                                 <strong class="text-xl">Obrigado!</strong>
                                 <p class="mt-2">Recebemos seu contato. Nossa equipe entrará em contato em breve.</p>
                             </div>
+
+                            <div id="debugMessage" class="hidden mt-6 p-6 bg-blue-100 text-blue-900 rounded-xl text-left text-xs overflow-auto max-h-96">
+                                <strong class="text-sm block mb-2">📋 Debug Info (Clint CRM):</strong>
+                                <pre id="debugContent" class="whitespace-pre-wrap font-mono"></pre>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -792,14 +797,14 @@
                 telefone: document.getElementById('telefone').value
             };
 
-            console.log('=== CLINT CRM DEBUG ===');
-            console.log('Form Data:', formData);
+            let debugLog = '=== CLINT CRM DEBUG ===\n';
+            debugLog += 'Form Data: ' + JSON.stringify(formData, null, 2) + '\n\n';
 
-            // Enviar para webhook Clint CRM via CORS Proxy
+            // Enviar para webhook Clint CRM
             try {
-                console.log('Enviando requisição para Clint CRM...');
+                debugLog += '📤 Enviando requisição para Clint CRM...\n';
+                debugLog += 'URL: https://functions-api.clint.digital/endpoints/integration/webhook/...\n\n';
 
-                // Tentar envio direto primeiro
                 const response = await fetch('https://functions-api.clint.digital/endpoints/integration/webhook/6bc6bcdd-198e-4de6-af06-50b004d8a062', {
                     method: 'POST',
                     mode: 'cors',
@@ -809,27 +814,25 @@
                     body: JSON.stringify(formData)
                 });
 
-                console.log('Response Status:', response.status);
-                console.log('Response Status Text:', response.statusText);
+                debugLog += 'Response Status: ' + response.status + '\n';
+                debugLog += 'Response Status Text: ' + response.statusText + '\n';
 
                 const responseText = await response.text();
-                console.log('Response Body:', responseText);
+                debugLog += 'Response Body: ' + responseText + '\n\n';
 
                 if (response.ok) {
-                    console.log('✅ Lead enviado com sucesso para Clint CRM');
+                    debugLog += '✅ Lead enviado com sucesso para Clint CRM!\n';
                 } else {
-                    console.error('❌ Erro ao enviar lead para Clint CRM');
-                    console.error('Status Code:', response.status);
-                    console.error('Response:', responseText);
+                    debugLog += '❌ Erro ao enviar lead para Clint CRM\n';
+                    debugLog += 'Status Code: ' + response.status + '\n';
                 }
             } catch (error) {
-                console.error('❌ Erro na requisição para Clint CRM:', error);
-                console.error('Error details:', error.message);
-                console.error('Error type:', error.name);
+                debugLog += '❌ ERRO na requisição: ' + error.message + '\n';
+                debugLog += 'Error Type: ' + error.name + '\n\n';
 
-                // Se falhar por CORS, tentar com proxy público
+                // Se falhar por CORS, tentar com proxy
                 if (error.name === 'TypeError') {
-                    console.log('🔄 Tentando via proxy CORS...');
+                    debugLog += '🔄 Tentando via proxy CORS...\n';
                     try {
                         const proxyResponse = await fetch('https://corsproxy.io/?' + encodeURIComponent('https://functions-api.clint.digital/endpoints/integration/webhook/6bc6bcdd-198e-4de6-af06-50b004d8a062'), {
                             method: 'POST',
@@ -840,16 +843,21 @@
                         });
 
                         if (proxyResponse.ok) {
-                            console.log('✅ Lead enviado via proxy com sucesso!');
+                            debugLog += '✅ Lead enviado via proxy com sucesso!\n';
                         } else {
-                            console.error('❌ Proxy também falhou:', proxyResponse.status);
+                            debugLog += '❌ Proxy falhou: ' + proxyResponse.status + '\n';
                         }
                     } catch (proxyError) {
-                        console.error('❌ Erro no proxy:', proxyError);
+                        debugLog += '❌ Erro no proxy: ' + proxyError.message + '\n';
                     }
                 }
             }
-            console.log('=== FIM DEBUG ===');
+
+            debugLog += '\n=== FIM DEBUG ===';
+
+            // Mostrar debug na tela
+            document.getElementById('debugContent').textContent = debugLog;
+            document.getElementById('debugMessage').classList.remove('hidden');
 
             // Tracking
             if (typeof fbq !== 'undefined') fbq('track', 'Lead');
